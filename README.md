@@ -24,10 +24,9 @@ ciphertext. See [docs/SECURITY.md](docs/SECURITY.md).
 
 Every push to `main` builds an Android app file (APK).
 
-1. On GitHub, open this repository's **Actions** tab and choose the latest **Android build** run.
-2. Under **Artifacts**, download **kept-android-debug**. It's a zip with `app-debug.apk` inside.
-3. Copy the APK to your phone (or download it there) and open it. Android will ask you to allow
-   installing apps from that source; allow it for this install only.
+1. On your phone, open https://github.com/aktaraja-sys/Kept/releases/download/android-preview/kept-preview.apk (or the **Releases** section of this repository, **Kept Android preview**).
+2. Open the downloaded `kept-preview.apk`. Android will ask you to allow installing apps from your
+   browser; allow it for this install only.
 
 In this preview the encrypted vault is stored **on the phone only**. Uninstalling the app deletes it.
 Syncing with the Kept server will be switched on once the server is hosted.
