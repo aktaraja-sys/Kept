@@ -1,0 +1,18 @@
+{
+  "name": "kept",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Kept: everything your family will need, in one secure place.",
+  "workspaces": ["packages/shared", "apps/api", "apps/web"],
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "dev": "npm run dev --workspace apps/api & npm run dev --workspace apps/web",
+    "dev:api": "npm run dev --workspace apps/api",
+    "dev:web": "npm run dev --workspace apps/web",
+    "build": "npm run build --workspace apps/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "test:e2e": "npm run test:e2e --workspace apps/web",
+    "android:sync": "npm run android:sync --workspace apps/web"
+  }
+}

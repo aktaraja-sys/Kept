@@ -1,0 +1,37 @@
+name: Android build
+
+# Builds an installable debug APK on every push to main, or on demand from the Actions tab.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: android-actions/setup-android@v3
+      - run: npm ci
+      - name: Build the app (vault stored on the device)
+        working-directory: apps/web
+        run: npm run build:android
+      - name: Build the APK
+        working-directory: apps/web/android
+        run: ./gradlew assembleDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kept-android-debug
+          path: apps/web/android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30

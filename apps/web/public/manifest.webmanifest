@@ -1,0 +1,1 @@
+{ "name": "Kept", "short_name": "Kept", "start_url": "/", "display": "standalone", "background_color": "#F3F1EC", "theme_color": "#111418", "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }] }
